@@ -10,4 +10,6 @@ ISE14.7設定FPGA晶片:
 |Speed  |      -4                 |
 
 FPGA外觀:
+![](image/FPGA.jpg)
+
 
