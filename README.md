@@ -1,5 +1,5 @@
 # FPGA-
-將在大二下時所學的FPGA紀錄於此，使用軟體:ISE14.7來撰寫。
+將在大二下時所學的FPGA紀錄於此，使用軟體:ISE14.7來撰寫。PING.pdf非本人所撰寫。
 
 ISE14.7設定FPGA晶片:
 |||
@@ -20,6 +20,6 @@ FPGA外觀:
     * Speed+ 按下時頻率變快2倍，放開變回原頻率
     * Speed- 按下時頻率變慢2倍，放開變回原頻率
     * Ctrl 按下時切換成下數模式，放開則為上數
-
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%202)
 
 
