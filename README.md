@@ -10,8 +10,10 @@ ISE14.7設定FPGA晶片:
 |Speed  |      -4                 |
 
 FPGA外觀:
+
 ![](image/FPGA.png)
 ## Lab 1
 1. 利用4 bits Ripple Carry Full Adder並使用邏輯閘實現4 bits 正整數全減器並輸出結果。
+  ####[答案]()
 
 
