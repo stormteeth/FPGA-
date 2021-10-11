@@ -32,3 +32,10 @@
 
 ![](result/Lab2-3.png)
 
+![](result/Lab2-4.png)
+
+第一個按鍵為改變上下數
+
+![](result/Lab2-5.png)
+
+第四個按鍵為加速
