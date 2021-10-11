@@ -1,4 +1,4 @@
-### 題目
+### [題目](https://github.com/stormteeth/FPGA-#lab-1)
 只要將1位元的全加器寫好，之後再主程式呼叫四個將其串起便可形成四位元全加器。
   ```verilog
   module fa(s,cout,a,b,cin);
