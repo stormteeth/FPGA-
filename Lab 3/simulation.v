@@ -1,4 +1,4 @@
-module a;
+module simulation;
 
 	// Inputs
 	reg clk;
@@ -12,32 +12,26 @@ module a;
 	wire led;
 
 	// Instantiate the Unit Under Test (UUT)
-	lab3 uut (
-		.sum(sum), 
-		.led(led), 
-		.clk(clk), 
-		.in(in), 
-		.rst(rst), 
-		.ctr(ctr), 
-		.a(a)
-	);
+	lab3 uut (.sum(sum),.led(led),.clk(clk),.in(in), 
+		.rst(rst),.ctr(ctr),.a(a));
 	initial 
-	clk = 0;
+	   clk = 0;
 	always #5 clk=~clk;
-   	initial begin
+   	
+	initial begin
 		// Initialize Inputs
-      in=1;
-		a=0;
-		ctr=0;
-      rst=1;
-		#1 rst=0;
-		#1 rst=1;
+           in=1;
+	   a=0;
+	   ctr=0;
+           rst=1;
+	#1 rst=0;
+	#1 rst=1;
 //------------------------
-      #1 in=0;
-		#30 in=1;
-		#30 in=0;
-		#30 in=1;
-		#30 in=0;
+        #1  in=0;
+	#30 in=1;
+	#30 in=0;
+	#30 in=1;
+	#30 in=0;
 	end
       
 endmodule
