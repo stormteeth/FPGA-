@@ -5,12 +5,12 @@ wire divclk;
 wire [3:0]cntout;
 output [3:0] sum;
 output led;
-botton b1(divclk,in,clk,rst);
+button b1(divclk,in,clk,rst);
 cnt4 c1(cntout,divclk,rst,ctr);
 N4add a1(sum,led,cntout,a);
 endmodule
 //-----------------------------------------------
-module botton(divclk,in,clk,rst);
+module button(divclk,in,clk,rst);
 input in,clk,rst;
 output reg divclk;
 
