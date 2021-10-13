@@ -32,13 +32,20 @@ end
 
 最外層:
 
-![](result/Lab3-1)
+![](result/Lab3-1.png)
 
 中間層:
 
-![](result/Lab3-2)
+![](result/Lab3-2.png)
 
 波型模擬:
 
-![](result/Lab3-3)
+![](result/Lab3-4.png)
 
+![](result/Lab3-5.png)
+
+因為一組數字是固定的，所以前四個按鈕是另一組數字相減後已LED顯示，此圖負號燈有亮
+
+![](result/Lab3-6.png)
+
+此按鈕為重置,所以回到設定值的初始計數
