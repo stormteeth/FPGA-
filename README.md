@@ -21,5 +21,7 @@ FPGA外觀:
     * Speed- 按下時頻率變慢2倍，放開變回原頻率
     * Ctrl 按下時切換成下數模式，放開則為上數
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab2)
-
+## Lab 3
+1. 實作以下區塊圖電路；4Bits FA為Lab1；4 Bits Counter為Lab2；Ctrl為控制 Counter上下數，1為上數，0為下數；in 0為按下，1為沒按；將 Button的 輸出當作Counter的Clock輸入，每一個Button的觸發可觸動Counter上 數或下 數，計數器的輸出跟A[3:0]相減後做輸出。
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%203)
 
