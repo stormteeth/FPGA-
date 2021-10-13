@@ -18,26 +18,26 @@ reg [23:0]decnt;
 parameter bound=24'hffffff;
 
 always@(posedge clk or negedge rst)begin
-   if(~rst)begin
-	   decnt<=0;
-		divclk<=0;
-	end
-	else begin
-	   if(~in)begin
-		   if(decnt<bound)begin
-			   decnt<=decnt+1;
-				divclk<=1;
-			end
-			else begin
-			   decnt<=decnt;
-				divclk<=1;
-			end
-		end
-		else begin
-		   decnt<=0;
-			divclk<=0;
-		end
-	end
+    if(~rst)begin
+        decnt<=0;
+	divclk<=0;
+    end
+    else begin
+        if(~in)begin
+	    if(decnt<bound)begin
+	        decnt<=decnt+1;
+		divclk<=1;
+	    end
+	    else begin
+	        decnt<=decnt;
+	        divclk<=1;
+	    end
+        end
+        else begin
+            decnt<=0;
+	    divclk<=0;
+        end
+    end
 end
 endmodule
 //------------------------------------------
@@ -72,15 +72,14 @@ module cnt4(cntout, clk, rst, ctr1);
 output reg [3:0] cntout;
 input clk,rst,ctr1;
 
-always@(posedge clk or negedge rst)
-begin
-   if(~rst)
-      cntout <= 4'd0;
-   else begin
-	   if(ctr1)
-         cntout<=cntout+4'd1;
-      else
-         cntout<=cntout-4'd1;
-   end
+always@(posedge clk or negedge rst)begin
+    if(~rst)
+        cntout <= 4'd0;
+    else begin
+        if(ctr1)
+            cntout<=cntout+4'd1;
+        else
+            cntout<=cntout-4'd1;
+    end
 end
 endmodule
