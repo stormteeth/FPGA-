@@ -16,28 +16,26 @@ endmodule
 module botton(clked,in,clk,rst);
 input in,clk,rst;
 output reg clked;
-
 reg [23:0]decnt;
 parameter bound=24'hffffff;
-
 always@(posedge clk or negedge rst)begin
-   if(~rst)begin
-	   decnt<=0;
+	if(~rst)begin
+		decnt<=0;
 		clked<=0;
 	end
 	else begin
-	   if(~in)begin
-		   if(decnt<bound)begin
-			   decnt<=decnt+1;
+		if(~in)begin
+			if(decnt<bound)begin
+				decnt<=decnt+1;
 				clked<=1;
 			end
 			else begin
-			   decnt<=decnt;
+				decnt<=decnt;
 				clked<=1;
 			end
 		end
 		else begin
-		   decnt<=0;
+			decnt<=0;
 			clked<=0;
 		end
 	end
