@@ -12,38 +12,36 @@ Random r1(value,set,rst,clk,divclk);
 N4add a1(sum,led,value,a);
 seg7 s1(out,outselect,sum);
 endmodule
-//-----------------------------------------------
+//--------除彈跳---------------------------------------
 module botton(divclk,in,clk,rst);
 input in,clk,rst;
 output reg divclk;
-
 reg [23:0]decnt;
 parameter bound=24'hffffff;
-
 always@(posedge clk or negedge rst)begin
-   if(~rst)begin
-	   decnt<=0;
+	if(~rst)begin
+		decnt<=0;
 		divclk<=0;
 	end
 	else begin
-	   if(~in)begin
-		   if(decnt<bound)begin
-			   decnt<=decnt+1;
+        	if(~in)begin
+	    		if(decnt<bound)begin
+	        		decnt<=decnt+1;
 				divclk<=1;
-			end
-			else begin
-			   decnt<=decnt;
+	    		end
+	    		else begin
+	        		decnt<=decnt;
 				divclk<=1;
-			end
+            		end
 		end
 		else begin
-		   decnt<=0;
-			divclk<=0;
+	    		decnt<=0;
+	    		divclk<=0;
 		end
-	end
+    	end
 end
 endmodule
-//------------------------------------------
+//---------4位元---------------------------------
 module N4add(d,o,a,b);
 
 wire [3:0] s,cout;
@@ -70,28 +68,26 @@ input a,b,cin;
 assign s=~a^~b^cin;
 assign cout = (~a&~b) | (cin&(~a^~b));
 endmodule
-//--------------------------------------------
+//-----------亂數---------------------------------
 module Random(value,set,rst,clk,start);
 output reg [3:0] value;
 input set,rst,clk,start;
 reg [3:0] seedcnt;
 
-always@(posedge clk or negedge rst)
-begin
-   if(~rst)
-      seedcnt <= 4'd0;
-   else 
-      seedcnt <= seedcnt+1;
+always@(posedge clk or negedge rst)begin
+    if(~rst)
+        seedcnt <= 4'd0;
+    else 
+        seedcnt <= seedcnt+1;
 end
-always@(posedge start or negedge set)
-begin
-   if(~set)
-	   value<=seedcnt;
-	else begin
-	   if(value==4'd0)
-		   value<=seedcnt;
-	   else begin
-		   value[0]<=value[3]^value[2];
+always@(posedge start or negedge set)begin
+	if(~set)
+        	value<=seedcnt;
+    	else begin
+        	if(value==4'd0)
+			value<=seedcnt;
+        	else begin
+			value[0]<=value[3]^value[2];
 			value[1]<=value[2]^value[1];
 			value[2]<=value[1]^value[0];
 			value[3]<=value[0]^value[3];
@@ -99,32 +95,32 @@ begin
 	end
 end
 endmodule
-//---------------------------------------------
+//-------------七段--------------------------------
 module seg7(out,outselect,in);
-   input [3:0] in;
-	output [3:0] outselect;
-	output reg [7:0] out;
+input [3:0] in;
+output [3:0] outselect;
+output reg [7:0] out;
 assign outselect=4'b0000;
 always@(*)begin
-   case(in)
-	4'd0:  begin out=8'b00000011; end
-	4'd1:  begin out=8'b10011111; end
-	4'd2:  begin out=8'b00100101; end
-	4'd3:  begin out=8'b00001101; end
-	4'd4:  begin out=8'b10011001; end
-	4'd5:  begin out=8'b01001001; end
-	4'd6:  begin out=8'b01000001; end
-	4'd7:  begin out=8'b00011111; end
-	4'd8:  begin out=8'b00000001; end
-	4'd9:  begin out=8'b00001001; end
-	4'd9:  begin out=8'b00001001; end
-	4'd10: begin out=8'b00010001; end
-	4'd11: begin out=8'b11000001; end
-	4'd12: begin out=8'b11000001; end
-	4'd13: begin out=8'b10000101; end
-	4'd14: begin out=8'b01100001; end
-	4'd15: begin out=8'b01110001; end
-   default:;
+	case(in)
+		4'd0:  begin out=8'b00000011; end
+		4'd1:  begin out=8'b10011111; end
+		4'd2:  begin out=8'b00100101; end
+		4'd3:  begin out=8'b00001101; end
+		4'd4:  begin out=8'b10011001; end
+		4'd5:  begin out=8'b01001001; end
+		4'd6:  begin out=8'b01000001; end
+		4'd7:  begin out=8'b00011111; end
+		4'd8:  begin out=8'b00000001; end
+		4'd9:  begin out=8'b00001001; end
+		4'd9:  begin out=8'b00001001; end
+		4'd10: begin out=8'b00010001; end
+		4'd11: begin out=8'b11000001; end
+		4'd12: begin out=8'b11000001; end
+		4'd13: begin out=8'b10000101; end
+		4'd14: begin out=8'b01100001; end
+		4'd15: begin out=8'b01110001; end
+   		default:;
 	endcase
 end
 endmodule
