@@ -1,4 +1,4 @@
-module T;
+module simulation;
 
 	// Inputs
 	reg clk;
