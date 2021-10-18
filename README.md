@@ -25,7 +25,7 @@ FPGA外觀:
 1. 實作以下區塊圖電路；4Bits FA為Lab1；4 Bits Counter為Lab2；Ctrl為控制 Counter上下數，1為上數，0為下數；in 0為按下，1為沒按；將 Button的 輸出當作Counter的Clock輸入，每一個Button的觸發可觸動Counter上 數或下 數，計數器的輸出跟A[3:0]相減後做輸出。
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%203)
 ## Lab 4
-1. 實作以下區塊圖電路；將練習中所產生的值(0~255)縮減為(0~15) 按下in按鈕(防彈跳)取一亂數值當作全減器(lab1)的被減數，並用LED顯示。而4bit b按鈕為全減器(lab1)的減數，將2數相減後用七段顯示器做輸出 另負數燈用LED顯示。
+1. 實作以下區塊圖電路；將練習中所產生的值0至255縮減為0至15。按下in按鈕(防彈跳)取一亂數值當作全減器(lab1)的被減數，並用LED顯示。而4bit b按鈕為全減器(lab1)的減數，將2數相減後用七段顯示器做輸出，另負數燈用LED顯示。
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%204)
 ## Lab 5
 1. 將Seccnt利用七段做顯示(計數的秒數);3顆LED顯示的四種狀態000,100,010,001(即目前狀態);並且 可以利用speed dwon/up 控制速度(原速度設定為 tmp[25]) 需加入防彈跳 1.Speedup 按下時頻率變快4倍，放開變回原頻率 2.Speeddwon 按下時頻率變慢4倍，放開變回原頻率
