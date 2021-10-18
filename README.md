@@ -28,7 +28,7 @@ FPGA外觀:
 1. 實作以下區塊圖電路；將練習中所產生的值0至255縮減為0至15。按下in按鈕(防彈跳)取一亂數值當作全減器(lab1)的被減數，並用LED顯示。而4bit b按鈕為全減器(lab1)的減數，將2數相減後用七段顯示器做輸出，另負數燈用LED顯示。
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%204)
 ## Lab 5
-1. 將Seccnt利用七段做顯示(計數的秒數);3顆LED顯示的四種狀態000,100,010,001(即目前狀態);並且 可以利用speed dwon/up 控制速度(原速度設定為 tmp[25]) 需加入防彈跳
+1. 將Seccnt利用七段做顯示(計數的秒數);3種狀態紅燈9秒；綠燈6秒；黃燈3秒，並且可以利用speed dwon/up 控制速度(原速度設定為 tmp[25]) 需加入防彈跳
    * Speedup 按下時頻率變快4倍，放開變回原頻率
    * Speeddwon 按下時頻率變慢4倍，放開變回原頻率
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%205)
