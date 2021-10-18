@@ -36,3 +36,15 @@ end
 模擬波型:
 
 ![](result/Lab4-3.png)
+
+![](result/Lab4-4.png)
+
+清除為0
+
+![](result/Lab4-5.png)
+
+取亂數後相減後結果
+
+![](result/Lab4-6.png)
+
+相減後為負，所以負號燈亮起
