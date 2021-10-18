@@ -1,4 +1,4 @@
-module lab4T;
+module simulation;
 	reg clk;
 	reg in;
 	reg rst;
