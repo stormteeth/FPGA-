@@ -1,4 +1,4 @@
-module labT;
+module simulation;
 
 	// Inputs
 	reg clk;
@@ -39,12 +39,12 @@ module labT;
 		rst = 0;
 		#5 rst = 1'b0;
 		#5 rst = 1'b1;
-   end
+   	end
 	initial begin
-	row = 4'b0111;
-	set = 0;
-	#25 set = 1'b1;
-	#1 set = 1'b0;
-	#5000000 row = 4'b1110;
+		row = 4'b0111;
+		set = 0;
+		#25 set = 1'b1;
+		#1 set = 1'b0;
+		#5000000 row = 4'b1110;
 	end    
 endmodule
