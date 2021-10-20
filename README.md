@@ -32,3 +32,6 @@ FPGA外觀:
    * Speedup 按下時頻率變快4倍，放開變回原頻率
    * Speeddwon 按下時頻率變慢4倍，放開變回原頻率
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%205)
+## Lab 6
+1. 將Lab5 紅綠燈狀態機秒數改成下數，並利用七段做顯示; 將四種狀態000,100,010,001，用LED Matrix做不同狀態(初始化，R，Y，G)輸出。
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%206)
