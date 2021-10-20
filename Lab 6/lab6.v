@@ -19,52 +19,51 @@ reg[1:0]state;
 input clk,rst;
 reg[24:0]devcnt;
 parameter  init=2'd0,red=2'd1,green=2'd2,yellow=2'd3;
-always @(posedge clk or negedge rst)
-begin
+always @(posedge clk or negedge rst)begin
    if(~rst) begin
-   sec<=4'd9;
-   state<=init;
-	switch<=0;
-end
+      sec<=4'd9;
+      state<=init;
+      switch<=0;
+   end
    else begin
       case(state)
          init:begin
-          sec<=4'd9;
-          state<=red;
-			 switch<=1;
-              end
-red:begin
-   if(sec>4'd0)
-      sec<=sec-1;
-   else begin
-      sec<=4'd6;
-      state<=green;
-		switch<=2;
-   end
-    end
-green:begin
-   if(sec>4'd0)
-      sec<=sec-1;
-   else begin
-      sec<=4'd3;
-      state<=yellow;
-		switch<=3;
-   end
-      end
-yellow:begin
-   if(sec>4'd0)
-      sec<=sec-1;
-   else begin
-      sec<=4'd9;
-      state<=red;
-		switch<=1;
-   end
-       end
-default:begin
-   switch<=0;
-   sec<=4'd9;
-   state<=init;
-end
+            sec<=4'd9;
+            state<=red;
+	    switch<=1;
+         end
+         red:begin
+            if(sec>4'd0)
+               sec<=sec-1;
+            else begin
+               sec<=4'd6;
+               state<=green;
+	       switch<=2;
+            end
+         end
+         green:begin
+            if(sec>4'd0)
+               sec<=sec-1;
+            else begin
+               sec<=4'd3;
+               state<=yellow;
+	       switch<=3;
+            end
+         end
+         yellow:begin
+            if(sec>4'd0)
+               sec<=sec-1;
+            else begin
+               sec<=4'd9;
+               state<=red;
+	       switch<=1;
+            end
+         end
+         default:begin
+            switch<=0;
+            sec<=4'd9;
+            state<=init;
+         end
       endcase
    end
 end
@@ -77,14 +76,13 @@ input reset;
 reg[27:0] tmp;
 assign out_clock1 = tmp[23];
 assign out_clock2 = tmp[12];
-always @( posedge in_clk or negedge reset)
-begin
-if(~reset) begin
-tmp <= 27'd0;
-end
-else begin
-tmp<=tmp+27'd1;
-end
+always@(posedge in_clk or negedge reset)begin
+   if(~reset)begin
+      tmp <= 27'd0;
+   end
+   else begin
+      tmp<=tmp+27'd1;
+   end
 end
 endmodule
 //-----------------------------------------------------------
@@ -116,7 +114,7 @@ always @(*)begin
 	endcase
 end
 endmodule
-//-----------------------------------------------
+//---------------LED矩陣-------------------------------
 module shild(row,column,switch,rst,clk);
 output reg[7:0]row,column;
 input rst,clk;
@@ -131,45 +129,45 @@ begin
 end
 always@(row,switch)begin
    if(switch==0)
-		column<=8'd0;
+      column<=8'd0;
    if(switch==1)begin
-	   case(row)
-		8'b0111_1111:column<=~8'b00111000;
-		8'b1011_1111:column<=~8'b00100100;
-		8'b1101_1111:column<=~8'b00100100;
-		8'b1110_1111:column<=~8'b00111000;
-		8'b1111_0111:column<=~8'b00110000;
-		8'b1111_1011:column<=~8'b00101000;
-		8'b1111_1101:column<=~8'b00100100;
-		8'b1111_1110:column<=~8'b00100010;
-		default:column<=8'd0;
-		endcase
-	end
-	if(switch==2)begin
-		   case(row)
-		8'b0111_1111:column<=~8'b00000000;
-		8'b1011_1111:column<=~8'b00111100;
-		8'b1101_1111:column<=~8'b01000000;
-		8'b1110_1111:column<=~8'b01000000;
-		8'b1111_0111:column<=~8'b01001110;
-		8'b1111_1011:column<=~8'b01000010;
-		8'b1111_1101:column<=~8'b00111110;
-		8'b1111_1110:column<=~8'b00000010;
-		default:column<=8'd0;
-		endcase
-	end
-	if(switch==3)begin
-	      case(row)
-		8'b0111_1111:column<=~8'b00000000;
-		8'b1011_1111:column<=~8'b11000011;
-		8'b1101_1111:column<=~8'b01100110;
-		8'b1110_1111:column<=~8'b00011000;
-		8'b1111_0111:column<=~8'b00011000;
-		8'b1111_1011:column<=~8'b00011000;
-		8'b1111_1101:column<=~8'b00011000;
-		8'b1111_1110:column<=~8'b00011000;
-		default:column<=8'd0;
-		endcase
-	end
+      case(row)
+         8'b0111_1111:column<=~8'b00111000;
+	 8'b1011_1111:column<=~8'b00100100;
+	 8'b1101_1111:column<=~8'b00100100;
+	 8'b1110_1111:column<=~8'b00111000;
+	 8'b1111_0111:column<=~8'b00110000;
+	 8'b1111_1011:column<=~8'b00101000;
+	 8'b1111_1101:column<=~8'b00100100;
+	 8'b1111_1110:column<=~8'b00100010;
+	 default:column<=8'd0;
+      endcase
+   end
+   if(switch==2)begin
+      case(row)
+         8'b0111_1111:column<=~8'b00000000;
+	 8'b1011_1111:column<=~8'b00111100;
+	 8'b1101_1111:column<=~8'b01000000;
+	 8'b1110_1111:column<=~8'b01000000;
+	 8'b1111_0111:column<=~8'b01001110;
+	 8'b1111_1011:column<=~8'b01000010;
+	 8'b1111_1101:column<=~8'b00111110;
+	 8'b1111_1110:column<=~8'b00000010;
+	 default:column<=8'd0;
+      endcase
+   end
+   if(switch==3)begin
+      case(row)
+         8'b0111_1111:column<=~8'b00000000;
+	 8'b1011_1111:column<=~8'b11000011;
+	 8'b1101_1111:column<=~8'b01100110;
+	 8'b1110_1111:column<=~8'b00011000;
+	 8'b1111_0111:column<=~8'b00011000;
+	 8'b1111_1011:column<=~8'b00011000;
+	 8'b1111_1101:column<=~8'b00011000;
+	 8'b1111_1110:column<=~8'b00011000;
+	 default:column<=8'd0;
+      endcase
+   end
 end
 endmodule
