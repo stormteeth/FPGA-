@@ -35,3 +35,6 @@ FPGA外觀:
 ## Lab 6
 1. 將Lab5 紅綠燈狀態機秒數改成下數，並利用七段做顯示; 將四種狀態000,100,010,001，用LED Matrix做不同狀態(初始化，R，Y，G)輸出。
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%206)
+## Lab 7
+1. 試做一個猜數字的小遊戲，當按下按鈕時，取得一亂數值作為答案，並以led顯示出來，隨後當按下鍵盤與答案做判斷，並用七段顯示鍵盤數字。當按下數字小於答案，在矩陣顯示↑ 按下數字大於答案，在矩陣顯示↓ 按下數字大於答案，在矩陣顯示O 需用led 顯示enable 燈亮表示按下 燈暗表示沒按下
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%207)
