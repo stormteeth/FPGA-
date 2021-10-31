@@ -38,3 +38,7 @@ FPGA外觀:
 ## Lab 7
 1. 試做一個猜數字的小遊戲，當按下按鈕時，取得一亂數值作為答案，並以led顯示出來，隨後當按下鍵盤與答案做判斷，並用七段顯示鍵盤數字。當按下數字小於答案，在矩陣顯示↑ 按下數字大於答案，在矩陣顯示↓ 按下數字大於答案，在矩陣顯示O 需用led 顯示enable 燈亮表示按下 燈暗表示沒按下
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%207)
+## Lab 8
+1. 將u+學號7位數字，總共8個字元顯示在LCD上。
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%208)
+    
