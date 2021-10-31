@@ -41,4 +41,6 @@ FPGA外觀:
 ## Lab 8
 1. 將u+學號7位數字，總共8個字元顯示在LCD上。
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%208)
+## Lab 9
+1. 製作一密碼鎖，學號末4位數字當作正確密碼。
     
