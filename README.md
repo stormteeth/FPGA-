@@ -43,4 +43,4 @@ FPGA外觀:
     #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%208)
 ## Lab 9
 1. 製作一密碼鎖，學號末4位數字當作正確密碼。
-    
+    #### [答案](https://github.com/stormteeth/FPGA-/tree/main/Lab%209) 
