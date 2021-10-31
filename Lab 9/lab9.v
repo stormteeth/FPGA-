@@ -21,8 +21,7 @@ input in_clk;
 input reset;
 reg[27:0] tmp;
 assign out_clock = tmp[12];
-always @( posedge in_clk or negedge reset)
-begin
+always @( posedge in_clk or negedge reset)begin
    if(~reset) begin
       tmp <= 27'd0;
    end
@@ -50,47 +49,47 @@ parameter pwd0=4'd2,pwd1=4'd0,pwd2=4'd7,pwd3=4'd2;
 
 always@(posedge clk or negedge rst)begin
    if(~rst)begin
-	   state<=init;
-		keycount<=3'd0;
-		for(i=0;i<4;i=i+1)
-		   buffer[i]<=4'd0;
-	end
-	else begin
-	   case(state)
-		init:begin 
-		   state<=waitkey;
-			end
-		waitkey:begin
-		if(keyevent==1)begin
-		buffer[keycount]<=keyV;
-		keycount<=keycount+1;
-		state<=checkinput;
-		   end
-		end
-		checkinput:begin
-		if(keyevent==0 && keycount<4)
-		state<=waitkey;
-		else if(keycount==4)
-		state<=compare;
-		end
-		compare:begin
-		if(pwd0==buffer[0] && pwd1==buffer[1] && pwd2==buffer[2] && pwd3==buffer[3])begin
-		  Tout<=1;
-		  Fout<=0;
-		  end
-		else begin
-		  Tout<=0;
-		  Fout<=1;		
-      end
-		end
-		default:begin
-	      state<=init;
-		   keycount<=3'd0;
-		   for(i=0;i<4;i=i+1)
-		   buffer[i]<=4'd0;
-		   end
-		endcase
-		end
+      state<=init;
+      keycount<=3'd0;
+      for(i=0;i<4;i=i+1)
+         buffer[i]<=4'd0;
+   end
+   else begin
+      case(state)
+         init:begin
+            state<=waitkey;
+	 end
+	 waitkey:begin
+            if(keyevent==1)begin
+               buffer[keycount]<=keyV;
+               keycount<=keycount+1;
+               state<=checkinput;
+            end
+         end
+         checkinput:begin
+            if(keyevent==0 && keycount<4)
+               state<=waitkey;
+            else if(keycount==4)
+               state<=compare;
+         end
+         compare:begin
+            if(pwd0==buffer[0] && pwd1==buffer[1] && pwd2==buffer[2] && pwd3==buffer[3])begin
+               Tout<=1;
+               Fout<=0;
+            end
+            else begin
+               Tout<=0;
+               Fout<=1;		
+	    end
+         end
+         default:begin
+	    state<=init;
+            keycount<=3'd0;
+            for(i=0;i<4;i=i+1)
+               buffer[i]<=4'd0;
+         end
+      endcase
+   end
 end
 endmodule
 //-----------------------------------------------------
@@ -101,82 +100,81 @@ output reg enable;
 reg[1:0]unscan;
 input [3:0]row;
 input clk,rst;
-
 always@(posedge clk or negedge rst)begin
    if(~rst)
-	   column<=3'b110;
-	else
-	   column<={column[1:0],column[2]};
+      column<=3'b110;
+   else
+      column<={column[1:0],column[2]};
 end
 always@(posedge clk or negedge rst)begin
    if(~rst)begin
-	 value<=4'd0;
-	 enable<=0;
-	 unscan<=0;
-	end
-	else begin
-	   case(column)
-		3'b110:begin
-		   case(row)
-			4'b0111:begin value<=4'd3; enable<=1;unscan<=0; end
-			4'b1011:begin value<=4'd6; enable<=1;unscan<=0; end
-			4'b1101:begin value<=4'd9; enable<=1;unscan<=0; end
-			4'b1110:begin value<=4'd11; enable<=1;unscan<=0; end
-			default:begin 
-			   if(unscan!=2'd3)begin
-				   unscan<=unscan+1;
-					value<=value;
-					enable<=enable;
-				end
-				else begin
-				   unscan<=unscan;
-					value<=0;
-					enable<=0;
-				end
-			end
-			endcase
-		end
-		3'b101:begin
-		   case(row)
-			4'b0111:begin value<=4'd2; enable<=1;unscan<=0; end
-			4'b1011:begin value<=4'd5; enable<=1;unscan<=0; end
-			4'b1101:begin value<=4'd8; enable<=1;unscan<=0; end
-			4'b1110:begin value<=4'd0; enable<=1;unscan<=0; end
-			default:begin 
-			   if(unscan!=2'd3)begin
-				   unscan<=unscan+1;
-					value<=value;
-					enable<=enable;
-				end
-				else begin
-				   unscan<=unscan;
-					value<=0;
-					enable<=0;
-				end
-			end
-			endcase
-		end
-		3'b011:begin
-		   case(row)
-			4'b0111:begin value<=4'd1; enable<=1;unscan<=0; end
-			4'b1011:begin value<=4'd4; enable<=1;unscan<=0; end
-			4'b1101:begin value<=4'd7; enable<=1;unscan<=0; end
-			4'b1110:begin value<=4'd10; enable<=1;unscan<=0; end
-			default:begin 
-			   if(unscan!=2'd3)begin
-				   unscan<=unscan+1;
-					value<=value;
-					enable<=enable;
-				end
-				else begin
-				   unscan<=unscan;
-					value<=0;
-					enable<=0;
-				end
-			end
-			endcase
-		end
-      default:begin value<=4'd0; enable<=0;unscan<=0; end
+      value<=4'd0;
+      enable<=0;
+      unscan<=0;
+   end
+   else begin
+      case(column)
+         3'b110:begin
+            case(row)
+               4'b0111:begin value<=4'd3; enable<=1;unscan<=0; end
+               4'b1011:begin value<=4'd6; enable<=1;unscan<=0; end
+               4'b1101:begin value<=4'd9; enable<=1;unscan<=0; end
+               4'b1110:begin value<=4'd11; enable<=1;unscan<=0; end
+               default:begin 
+                  if(unscan!=2'd3)begin
+                     unscan<=unscan+1;
+                     value<=value;
+                     enable<=enable;
+                  end
+                  else begin
+                     unscan<=unscan;
+                     value<=0;
+                     enable<=0;
+                  end
+               end
+            endcase
+         end
+         3'b101:begin
+            case(row)
+               4'b0111:begin value<=4'd2; enable<=1;unscan<=0; end
+               4'b1011:begin value<=4'd5; enable<=1;unscan<=0; end
+               4'b1101:begin value<=4'd8; enable<=1;unscan<=0; end
+               4'b1110:begin value<=4'd0; enable<=1;unscan<=0; end
+               default:begin 
+                  if(unscan!=2'd3)begin
+                     unscan<=unscan+1;
+                     value<=value;
+                     enable<=enable;
+                  end
+                  else begin
+                     unscan<=unscan;
+                     value<=0;
+                     enable<=0;
+                  end
+               end
+            endcase
+         end
+         3'b011:begin
+            case(row)
+               4'b0111:begin value<=4'd1; enable<=1;unscan<=0; end
+               4'b1011:begin value<=4'd4; enable<=1;unscan<=0; end
+               4'b1101:begin value<=4'd7; enable<=1;unscan<=0; end
+               4'b1110:begin value<=4'd10; enable<=1;unscan<=0; end
+               default:begin 
+                  if(unscan!=2'd3)begin
+                     unscan<=unscan+1;
+                     value<=value;
+                     enable<=enable;
+                  end
+                  else begin
+                     unscan<=unscan;
+                     value<=0;
+                     enable<=0;
+                  end
+               end
+            endcase
+         end
+         default:begin value<=4'd0; enable<=0;unscan<=0; end
       endcase
    end
 end
@@ -186,24 +184,20 @@ module seg7out_switch(seg7_select,seg7value,clk,rst,in0,in1,in2,in3);
 output reg [3:0] seg7_select,seg7value;
 input [3:0] in0,in1,in2,in3;
 input clk,rst;
-
-always@(posedge clk or negedge rst)
-begin
+always@(posedge clk or negedge rst)begin
    if(~rst)
-	   seg7_select<=4'b0111;
-	else
-	   seg7_select<={seg7_select[2:0],seg7_select[3]};
+      seg7_select<=4'b0111;
+   else
+      seg7_select<={seg7_select[2:0],seg7_select[3]};
 end	
-
-always@(*)
-begin
+always@(*)begin
    case(seg7_select)
-	   4'b0111:seg7value<=in0;
-		4'b1011:seg7value<=in1;
-		4'b1101:seg7value<=in2;
-		4'b1110:seg7value<=in3;
-		default:seg7value<=4'd0;
-	endcase
+      4'b0111:seg7value<=in0;
+      4'b1011:seg7value<=in1;
+      4'b1101:seg7value<=in2;
+      4'b1110:seg7value<=in3;
+      default:seg7value<=4'd0;
+   endcase
 end
 endmodule
 //-----------------------------------------------------------
